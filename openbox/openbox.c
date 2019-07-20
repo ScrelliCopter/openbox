@@ -51,30 +51,17 @@
 #include "obt/prop.h"
 #include "obt/keyboard.h"
 #include "obt/xml.h"
+#include "version.h"
 
-#ifdef HAVE_FCNTL_H
-#  include <fcntl.h>
-#endif
-#ifdef HAVE_SIGNAL_H
-#  include <signal.h>
-#endif
-#ifdef HAVE_STDLIB_H
-#  include <stdlib.h>
-#endif
-#ifdef HAVE_LOCALE_H
-#  include <locale.h>
-#endif
-#ifdef HAVE_SYS_STAT_H
-#  include <sys/stat.h>
-#  include <sys/types.h>
-#endif
-#ifdef HAVE_SYS_WAIT_H
-#  include <sys/types.h>
-#  include <sys/wait.h>
-#endif
-#ifdef HAVE_UNISTD_H
-#  include <unistd.h>
-#endif
+#include <fcntl.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
 #include <errno.h>
 
 #include <X11/cursorfont.h>
@@ -517,7 +504,7 @@ static void signal_handler(gint signal, gpointer data)
 
 static void print_version(void)
 {
-    g_print("Openbox %s\n", PACKAGE_VERSION);
+    g_print("Openbox %s\n", OPENBOX_VERSION);
     g_print(_("Copyright (c)"));
     g_print(" 2004   Mikael Magnusson\n");
     g_print(_("Copyright (c)"));
@@ -550,7 +537,7 @@ static void print_help(void)
     g_print(_("  --debug-focus       Display debugging output for focus handling\n"));
     g_print(_("  --debug-session     Display debugging output for session management\n"));
     g_print(_("  --debug-xinerama    Split the display into fake xinerama screens\n"));
-    g_print(_("\nPlease report bugs at %s\n"), PACKAGE_BUGREPORT);
+    g_print(_("\nPlease report bugs at %s\n"), OPENBOX_BUGREPORT);
 }
 
 static void remove_args(gint *argc, gchar **argv, gint index, gint num)

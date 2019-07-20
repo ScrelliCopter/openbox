@@ -22,15 +22,9 @@
 #include "obt/keyboard.h"
 #include "obt/xqueue.h"
 
-#ifdef HAVE_STRING_H
-#  include <string.h>
-#endif
-#ifdef HAVE_FCNTL_H
-#  include <fcntl.h>
-#endif
-#ifdef HAVE_UNISTD_H
-#  include <unistd.h>
-#endif
+#include <string.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 /* from xqueue.c */
 extern void xqueue_init(void);

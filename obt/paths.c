@@ -20,27 +20,13 @@
 #include "obt/paths.h"
 #include "obt/util.h"
 
-#ifdef HAVE_STDLIB_H
-#  include <stdlib.h>
-#endif
-#ifdef HAVE_SYS_STAT_H
-#  include <sys/stat.h>
-#endif
-#ifdef HAVE_SYS_TYPES_H
-#  include <sys/types.h>
-#endif
-#ifdef HAVE_STRING_H
-#  include <string.h>
-#endif
-#ifdef HAVE_UNISTD_H
-#  include <unistd.h>
-#endif
-#ifdef HAVE_GRP_H
-#  include <grp.h>
-#endif
-#ifdef HAVE_PWD_H
-#  include <pwd.h>
-#endif
+#include <stdlib.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <string.h>
+#include <unistd.h>
+#include <grp.h>
+#include <pwd.h>
 
 struct _ObtPaths
 {

@@ -18,12 +18,8 @@
 
 #include "obt/ddparse.h"
 #include "obt/link.h"
-#ifdef HAVE_STRING_H
 #include <string.h>
-#endif
-#ifdef HAVE_STDIO_H
 #include <stdio.h>
-#endif
 
 typedef struct _ObtDDParse ObtDDParse;
 
