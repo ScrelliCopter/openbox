@@ -39,7 +39,7 @@ set(SOURCE
 	theme.h
 	theme.c)
 
-add_library(${TARGET} SHARED ${SOURCE})
+add_library(${TARGET} ${SOURCE})
 target_compile_definitions(${TARGET} PRIVATE DEFAULT_THEME=\"${DEFAULT_THEME}\")
 if (IMLIB2_FOUND)
 	target_compile_definitions(${TARGET} PRIVATE USE_IMLIB2)
@@ -48,4 +48,3 @@ if (LIBRSVG_FOUND)
 	target_compile_definitions(${TARGET} PRIVATE USE_LIBRSVG)
 endif()
 target_include_directories(${TARGET} PRIVATE ${INCLUDE_DIRS})
-#target_link_libraries(${TARGET} PRIVATE ${LIBRARIES})

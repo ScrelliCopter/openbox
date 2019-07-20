@@ -28,6 +28,6 @@ set(SOURCE
 	xqueue.h
 	xqueue.c)
 
-add_library(${TARGET} SHARED ${SOURCE})
+add_library(${TARGET} ${SOURCE})
 target_compile_definitions(${TARGET} PRIVATE DATADIR=\"${DATADIR}\" CONFIGDIR=\"${CONFIGDIR}\")
 target_include_directories(${TARGET} PRIVATE ${INCLUDE_DIRS})
