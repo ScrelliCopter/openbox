@@ -1,8 +1,8 @@
 #ifndef ob__version_h
 #define ob__version_h
 
-#define PACKAGE_NAME "@PROJECT_NAME@"
-#define OPENBOX_VERSION "@PROJECT_VERSION@"
+#define PACKAGE_NAME      "@PROJECT_NAME@"
+#define OPENBOX_VERSION   "@PROJECT_VERSION@"
 #define OPENBOX_BUGREPORT "@PROJECT_HOMEPAGE@"
 
 #endif

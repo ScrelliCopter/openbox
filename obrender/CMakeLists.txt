@@ -10,7 +10,9 @@ configure_file(
 set(INCLUDE_DIRS
 	${CMAKE_SOURCE_DIR}
 	${CMAKE_BINARY_DIR}
-	${PANGO_INCLUDE_DIRS})
+	${PANGO_INCLUDE_DIRS}
+	${IMLIB2_INCLUDE_DIRS}
+	${LIBRSVG_INCLUDE_DIRS})
 
 set(SOURCE
 	${CMAKE_SOURCE_DIR}/gettext.h
@@ -39,5 +41,11 @@ set(SOURCE
 
 add_library(${TARGET} SHARED ${SOURCE})
 target_compile_definitions(${TARGET} PRIVATE DEFAULT_THEME=\"${DEFAULT_THEME}\")
+if (IMLIB2_FOUND)
+	target_compile_definitions(${TARGET} PRIVATE USE_IMLIB2)
+endif()
+if (LIBRSVG_FOUND)
+	target_compile_definitions(${TARGET} PRIVATE USE_LIBRSVG)
+endif()
 target_include_directories(${TARGET} PRIVATE ${INCLUDE_DIRS})
 #target_link_libraries(${TARGET} PRIVATE ${LIBRARIES})

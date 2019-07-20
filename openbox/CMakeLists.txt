@@ -6,13 +6,21 @@ set(INCLUDE_DIRS
 	${GLIB_INCLUDE_DIRS}
 	${PANGO_INCLUDE_DIRS}
 	${LIBXML_INCLUDE_DIRS}
-	${X11_INCLUDE_DIRS})
+	${X11_INCLUDE_DIRS}
+	${STARTUPNOTIFY_INCLUDE_DIRS}
+	${XCURSOR_INCLUDE_DIRS}
+	${IMLIB2_INCLUDE_DIRS}
+	${LIBRSVG_INCLUDE_DIRS})
 
 set(LIBRARIES
 	${GLIB_LIBRARIES}
 	${PANGO_LIBRARIES}
 	${LIBXML_LIBRARIES}
 	${X11_LIBRARIES}
+	${STARTUPNOTIFY_LIBRARIES}
+	${XCURSOR_LIBRARIES}
+	${IMLIB2_LIBRARIES}
+	${LIBRSVG_LIBRARIES}
 	obt obrender)
 
 set(SOURCE
@@ -135,5 +143,17 @@ set(SOURCE
 
 add_executable(${TARGET} ${SOURCE})
 target_compile_definitions(${TARGET} PRIVATE LOCALEDIR=\"${LOCALEDIR}\")
+if (STARTUPNOTIFY_FOUND)
+	target_compile_definitions(${TARGET} PRIVATE USE_LIBSN)
+endif()
+if (XCURSOR_FOUND)
+	target_compile_definitions(${TARGET} PRIVATE USE_XCURSOR)
+endif()
+if (IMLIB2_FOUND)
+	target_compile_definitions(${TARGET} PRIVATE USE_IMLIB2)
+endif()
+if (LIBRSVG_FOUND)
+	target_compile_definitions(${TARGET} PRIVATE USE_LIBRSVG)
+endif()
 target_include_directories(${TARGET} PRIVATE ${INCLUDE_DIRS})
 target_link_libraries(${TARGET} PRIVATE ${LIBRARIES})
